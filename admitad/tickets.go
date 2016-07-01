@@ -25,6 +25,14 @@ type Ticket struct {
 	Priority     int    `json:"priority"`
 	Status       int    `json:"status"`
 	Subject      string `json:"subject"`
+	Category     struct {
+		Id   int    `json:"id"`
+		Name string `json:"name"`
+	}
+	AdvCampaign struct {
+		Id   int    `json:"id"`
+		Name string `json"name"`
+	}
 }
 
 type TicketList struct {
