@@ -15,6 +15,8 @@ type Client struct {
 	sling   *sling.Sling
 	Me      *MeService
 	Tickets *TicketService
+	News    *NewsService
+	Referrals *ReferralService
 }
 
 func NewClient(httpClient *http.Client) *Client {
@@ -24,5 +26,7 @@ func NewClient(httpClient *http.Client) *Client {
 
 		Me:      NewMeService(base.New()),
 		Tickets: NewTicketService(base.New()),
+		News:    NewNewsService(base.New()),
+		Referrals: NewReferralService(base.New()),
 	}
 }
