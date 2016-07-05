@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/admitad/go-admitad/admitad"
+	"github.com/janitor/go-admitad/admitad"
 	"golang.org/x/oauth2"
 )
 
