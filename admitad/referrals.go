@@ -9,16 +9,16 @@ type ReferralService struct {
 	sling *sling.Sling
 }
 
-func NewReferralService (sling *sling.Sling) *ReferralService {
+func NewReferralService(sling *sling.Sling) *ReferralService {
 	return &ReferralService{
 		sling: sling.Patch("referrals/"),
 	}
 }
 
 type Referral struct {
-	Id int `json:"id"`
+	Id       int    `json:"id"`
 	Username string `json:"username"`
-	Payment int `json:"payment"`
+	Payment  int    `json:"payment"`
 }
 
 type ReferralList struct {
@@ -27,7 +27,7 @@ type ReferralList struct {
 
 type ReferralShowParams struct {
 	DateStart string `url:"date_start"`
-	DateEnd string `url:"date_end"`
+	DateEnd   string `url:"date_end"`
 }
 
 func (s *ReferralService) Show(params *ReferralShowParams) ([]Referral, *http.Response, error) {
