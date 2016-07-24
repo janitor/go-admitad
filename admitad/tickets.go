@@ -44,12 +44,12 @@ type Ticket struct {
 	}
 	AdvCampaign struct {
 		Id   int    `json:"id"`
-		Name string `json"name"`
+		Name string `json:"name"`
 	}
 }
 
 type TicketList struct {
-	Results []Ticket `json:"results`
+	Results []Ticket `json:"results"`
 }
 
 type TicketShowParams struct {
@@ -65,17 +65,17 @@ func (s *TicketService) Show(params *TicketShowParams) ([]Ticket, *http.Response
 	return ticketList.Results, resp, err
 }
 
-//type TicketCreateParams struct {
-//	Subject     string `json:"subject"`
-//	Text        string `json:"text"`
-//	AdvCampaign int    `json:"advcampaign"`
-//	Category    int    `json:"category"`
-//	Priority    int    `json:"priority"`
-//}
-//
-//func (s *TicketService) Create(params *TicketCreateParams) (Ticket, *http.Response, error) {
-//	ticket := new(Ticket)
-//	apiError := new(APIError)
-//	resp, err := s.sling.New().Post("create/").BodyJSON(params).Receive(ticket, apiError)
-//	return *ticket, resp, err
-//}
+type TicketCreateParams struct {
+	Subject     string `json:"subject"`
+	Text        string `json:"text"`
+	AdvCampaign int    `json:"advcampaign"`
+	Category    int    `json:"category"`
+	Priority    int    `json:"priority"`
+}
+
+func (s *TicketService) Create(params *TicketCreateParams) (Ticket, *http.Response, error) {
+	ticket := new(Ticket)
+	apiError := new(APIError)
+	resp, err := s.sling.New().Post("create/").BodyJSON(params).Receive(ticket, apiError)
+	return *ticket, resp, err
+}
