@@ -19,6 +19,7 @@ type Client struct {
 	Referrals   *ReferralService
 	StatsDate   *StatsDateService
 	BrokenLinks *BrokenLinkService
+	Balances    *BalanceService
 }
 
 func NewClient(httpClient *http.Client) *Client {
@@ -32,5 +33,6 @@ func NewClient(httpClient *http.Client) *Client {
 		Referrals:   NewReferralService(base.New()),
 		StatsDate:   NewStatsDateService(base.New()),
 		BrokenLinks: NewBrokenLinkService(base.New()),
+		Balances:    NewBalanceService(base.New()),
 	}
 }
