@@ -6,6 +6,13 @@ import (
 	"github.com/dghubble/sling"
 )
 
+var BrokenLinkErrorReasonDescription = map[int]string{
+	0: "Program suspended",
+	1: "You are not cooperating with the program",
+	2: "Banner deleted",
+	3: "Invalid deeplink domain",
+}
+
 type BrokenLinkService struct {
 	sling *sling.Sling
 }
