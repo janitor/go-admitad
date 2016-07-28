@@ -17,12 +17,15 @@ func NewStatsDateService(sling *sling.Sling) *StatsDateService {
 }
 
 type StatsDate struct {
-	Date     string `json:"date"`
-	Currency string `json:"currency"`
-	LeadsSum int    `json:"leads_sum"`
-	SalesSum int    `json:"sales_sum"`
-	Views    int    `json:"views"`
-	Clicks   int    `json:"clicks"`
+	Date               string  `json:"date"`
+	Currency           string  `json:"currency"`
+	LeadsSum           int     `json:"leads_sum"`
+	SalesSum           int     `json:"sales_sum"`
+	Views              int     `json:"views"`
+	Clicks             int     `json:"clicks"`
+	PaymentSumDeclined float32 `json:"payment_sum_declined"`
+	PaymentSumApproved float32 `json:"payment_sum_approved"`
+	PaymentSumOpen     float32 `json:"payment_sum_open"`
 }
 
 type StatsDateList struct {
