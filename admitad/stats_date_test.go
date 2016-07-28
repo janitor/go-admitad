@@ -24,7 +24,7 @@ func TestStatsDateService_Show(t *testing.T) {
 					"views": 0,
 					"payment_sum_declined": 0.0,
 					"clicks": 2,
-					"payment_sum_approved": -1254.81,
+					"payment_sum_approved": 1254.81,
 					"currency": "RUB",
 					"ecpm": 0.0,
 					"sales_sum": 4,
@@ -46,12 +46,15 @@ func TestStatsDateService_Show(t *testing.T) {
 	client := NewClient(httpClient)
 	stats, _, err := client.StatsDate.Show(&StatsDateShowParams{})
 	expected := StatsDate{
-		Date:     "2011-02-24",
-		Views:    0,
-		Clicks:   2,
-		Currency: "RUB",
-		LeadsSum: 0,
-		SalesSum: 4,
+		Date:               "2011-02-24",
+		Views:              0,
+		Clicks:             2,
+		Currency:           "RUB",
+		LeadsSum:           0,
+		SalesSum:           4,
+		PaymentSumDeclined: 0.0,
+		PaymentSumApproved: 1254.81,
+		PaymentSumOpen:     6274.04,
 	}
 	assert.Nil(t, err)
 	assert.Equal(t, expected, stats[0])
