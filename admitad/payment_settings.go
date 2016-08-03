@@ -16,8 +16,8 @@ func NewPaymentSettingsService(sling *sling.Sling) *PaymentSettingsService {
 }
 
 type PaymentSettings struct {
-	Id       int    `json:"id"`
-	Name     string `json:"name"`
+	Id       int      `json:"id"`
+	Name     string   `json:"name"`
 	Currency []string `json:"currency"`
 }
 

@@ -1,6 +1,7 @@
 package admitad
 
 import (
+	"fmt"
 	"github.com/dghubble/sling"
 	"net/http"
 )
@@ -39,14 +40,15 @@ func (s *PayoutService) Show(params *PayoutShowParams) ([]Payout, *http.Response
 	return payoutList.Results, resp, err
 }
 
-//type PayoutCreateParams struct {
-//	Currency string
-//}
-//
-//func (s *PayoutService) Create(params *PayoutCreateParams) (Payout, *http.Response, error) {
-//	payout := new(Payout)
-//	apiError := new(APIError)
-//	pathURL := fmt.Sprintf("request/%s/", params.Currency)
-//	resp, err := s.sling.New().Post(pathURL).BodyJSON(params).Receive(payout, apiError)
-//	return *payout, resp, err
-//}
+type PayoutCreateParams struct {
+	Currency          string
+	PaymentSettingsId int
+}
+
+func (s *PayoutService) Create(params *PayoutCreateParams) (Payout, *http.Response, error) {
+	payout := new(Payout)
+	apiError := new(APIError)
+	pathURL := fmt.Sprintf("request/%s/settings/%d/", params.Currency, params.PaymentSettingsId)
+	resp, err := s.sling.New().Post(pathURL).BodyJSON(params).Receive(payout, apiError)
+	return *payout, resp, err
+}
